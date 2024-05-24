@@ -7,3 +7,23 @@ const theme = createTheme({
 });
 
 export default theme;
+
+
+/* 
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#007bff', // رنگ آبی اصلی
+    },
+    secondary: {
+      main: '#ffc107', // رنگ زرد ثانویه
+    },
+  },
+  typography: {
+    fontFamily: 'Arial', // فونت دلخواه
+  },
+  // سایر properties تم
+});
+
+ */
