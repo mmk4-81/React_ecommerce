@@ -6,11 +6,19 @@
   --quinary-main: #d1a1a0;
 }
 
+@font-face {
+  font-family: 'Vazir';
+  src: local('Vazir'), url('./assets/fonts/Vazir.ttf') format('truetype');
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: var(--primary-main);
-  color: var(--secondary-main);
+  font-family: 'Vazir';
 }
 
+body{
+  background-color: var(--primary-main);
+  /* color: var(--secondary-main); */
+}

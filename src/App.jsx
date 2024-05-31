@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <ResponsiveAppBar />
-        <div style={{ marginTop: '65px' }}> {/* 64px برابر با ارتفاع نوبار */}
+        <div style={{ marginTop: '90px' }}> 
           <AppRoutes />
         </div>
       </div>
