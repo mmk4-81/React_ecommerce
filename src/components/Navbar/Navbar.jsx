@@ -28,7 +28,7 @@ function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const isLoggedIn = true; // شرط لاگین بودن کاربر
+  const isLoggedIn = false;
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -94,7 +94,7 @@ function ResponsiveAppBar() {
                   display: 'flex',
                   justifyContent: 'right',
                   alignItems: 'start',
-                  borderRadius:'10px'
+                  borderRadius: '10px'
                 },
               }}
             >
@@ -135,8 +135,14 @@ function ResponsiveAppBar() {
             </Box>
           </Box>
 
-          {/* Right side icons and buttons */}
-          <Box sx={{ display: 'flex', alignItems: 'center', marginRight: '20px' }}>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              marginRight: '10px',
+              padding: '10px', 
+            }}
+          >
             <IconButton color="inherit" component={Link} to="/search">
               <SearchIcon sx={{ color: '#8d494a' }} />
             </IconButton>
@@ -144,20 +150,48 @@ function ResponsiveAppBar() {
               <ShoppingCartIcon sx={{ color: '#8d494a' }} />
             </IconButton>
             {!isLoggedIn ? (
-              <Button component={Link} to="/login" sx={{ color: 'white', backgroundColor: '#8d494a', borderRadius: '20px', padding: '5px 15px', ml: 1 }}>
+              <Button
+                component={Link}
+                to="/login"
+                sx={{
+                  color: 'white',
+                  backgroundColor: '#8d494a',
+                  borderRadius: '20px',
+                  padding: '5px 15px',
+                  '&:hover': {
+                    backgroundColor: '#a65b5c',
+                  },
+                }}
+              >
                 ورود
               </Button>
             ) : (
               <>
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <AccountCircle  sx={{ color: '#8d494a', fontSize: 30 }} />
+                <IconButton component={Link} to="/profile" sx={{ p: 0, marginRight: '20px' }}>
+                  <AccountCircle sx={{ color: '#8d494a', fontSize: 30 }} />
                 </IconButton>
-                <Button component={Link} to="/logout" sx={{ color: '#8d494a', ml: 1 }}>
+                <Button
+                  component={Link}
+                  to="/logout"
+                  sx={{
+                    color: 'white',
+                    backgroundColor: '#8d494a',
+                    borderRadius: '20px',
+                    padding: '5px 15px',
+                    '&:hover': {
+                      backgroundColor: '#a65b5c',
+                    },
+                    marginRight: '10px',
+                  }}
+                >
                   خروج
                 </Button>
               </>
-            )}
+            )
+            }
           </Box>
+
+
         </Toolbar>
       </Container>
     </AppBar>
