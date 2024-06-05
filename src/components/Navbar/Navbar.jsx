@@ -17,6 +17,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import StoreIcon from '@mui/icons-material/Store';
 import CategoryIcon from '@mui/icons-material/Category';
 import logo from './../../assets/logo/logo.png';
+import LogoutDialog from '../../pages/logout/logout';
 
 const pages = [
   { id: 'home', name: 'صفحه اصلی', link: '/', icon: <HomeIcon /> },
@@ -27,8 +28,9 @@ const pages = [
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [openLogoutDialog, setOpenLogoutDialog] = React.useState(false); // استیت برای نمایش/مخفی کردن دیالوگ باکس خروج
 
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -44,6 +46,14 @@ function ResponsiveAppBar() {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const handleOpenLogoutDialog = () => {
+    setOpenLogoutDialog(true);
+  };
+
+  const handleCloseLogoutDialog = () => {
+    setOpenLogoutDialog(false);
   };
 
   return (
@@ -140,7 +150,7 @@ function ResponsiveAppBar() {
               display: 'flex',
               alignItems: 'center',
               marginRight: '10px',
-              padding: '10px', 
+              padding: '10px',
             }}
           >
             <IconButton color="inherit" component={Link} to="/search">
@@ -171,8 +181,8 @@ function ResponsiveAppBar() {
                   <AccountCircle sx={{ color: '#8d494a', fontSize: 30 }} />
                 </IconButton>
                 <Button
-                  component={Link}
-                  to="/logout"
+                  onClick={handleOpenLogoutDialog} // فراخوانی دیالوگ باکس خروج
+
                   sx={{
                     color: 'white',
                     backgroundColor: '#8d494a',
@@ -186,12 +196,15 @@ function ResponsiveAppBar() {
                 >
                   خروج
                 </Button>
+                <LogoutDialog // نمایش کامپوننت دیالوگ باکس خروج
+                  open={openLogoutDialog}
+                  handleClose={handleCloseLogoutDialog}
+                  handleLogout={handleCloseLogoutDialog}
+                />
               </>
             )
             }
           </Box>
-
-
         </Toolbar>
       </Container>
     </AppBar>
