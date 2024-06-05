@@ -61,7 +61,7 @@ function ResponsiveAppBar() {
       <Container maxWidth="xl">
         <Toolbar sx={{ height: 80, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           {/* Logo for mobile */}
-          <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'center', flexGrow: 1 }}>
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'center',alignItems:'center', flexGrow: 1 }}>
             <Link to="/">
               <img src={logo} alt="Logo" style={{ height: 70, width: 70 }} />
             </Link>
@@ -95,11 +95,11 @@ function ResponsiveAppBar() {
               onClose={handleCloseNavMenu}
               PaperProps={{
                 sx: {
-                  width: '50%',
+                  width: '200px',
                   height: '30vh',
-                  top: '10px',
+                  top: '20px',
                   left: '0',
-                  right: '0',
+                  right: '10px',
                   bottom: '0',
                   display: 'flex',
                   justifyContent: 'right',
@@ -114,7 +114,7 @@ function ResponsiveAppBar() {
                   component={Link}
                   to={page.link}
                   onClick={handleCloseNavMenu}
-                  sx={{ color: '#8d494a', justifyContent: 'start', width: '100%' }}
+                  sx={{ color: '#8d494a', justifyContent: 'start', width: '100%', margin:'10px ' }}
                 >
                   {page.icon}
                   <Typography sx={{ mr: 2 }}>{page.name}</Typography>
