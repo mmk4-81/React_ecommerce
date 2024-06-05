@@ -1,20 +1,26 @@
-// src/App.tsx
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, useLocation } from 'react-router-dom';
 import AppRoutes from './Routes';
 import ResponsiveAppBar from './components/Navbar/Navbar';
 
-function App() {
+const App = () => {
+  const location = useLocation();
+  const noNavbarRoutes = ['/login', '/signup', '/profile', '/dashboard' , '/logout'];
+
   return (
-    <BrowserRouter>
-      <div className="App">
-        <ResponsiveAppBar />
-        <div style={{ marginTop: '90px' }}> 
-          <AppRoutes />
-        </div>
+    <div className="App">
+      {!noNavbarRoutes.includes(location.pathname) && <ResponsiveAppBar />}
+      <div style={{ marginTop: noNavbarRoutes.includes(location.pathname) ? '0' : '80px' }}>
+        <AppRoutes />
       </div>
-    </BrowserRouter>
+    </div>
   );
 }
 
-export default App;
+const AppWrapper = () => (
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+export default AppWrapper;

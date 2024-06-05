@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Vazir';
+  src: local('Vazir'), url('./assets/fonts/Vazir.ttf') format('truetype');
+}
+
 :root {
   --primary-main: #fae9ea;
   --secondary-main: #8d494a;
@@ -6,19 +11,32 @@
   --quinary-main: #d1a1a0;
 }
 
-@font-face {
-  font-family: 'Vazir';
-  src: local('Vazir'), url('./assets/fonts/Vazir.ttf') format('truetype');
-}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Vazir';
+  font-family: 'Vazir', Arial, sans-serif;
+  font-size: 18px;
 }
 
-body{
+body {
   background-color: var(--primary-main);
-  /* color: var(--secondary-main); */
 }
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background: #e0e0e0;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #888;
+}
+
+::-webkit-scrollbar-track:hover{
+    background: #555;
+}
+
